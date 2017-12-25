@@ -20,6 +20,15 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+class Greeting extends Component{
+  render(){
+    return(
+        <Text>Hello {this.props.name}!</Text>
+    );
+  }
+}
+
+
 export default class App extends Component<{}> {
   render() {
 
@@ -39,6 +48,8 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        <Greeting name='jack'/>
+        <Greeting name='mary'/>
         <Image source={pic} style={{width:200,height:200}}/>
       </View>
     );
