@@ -12,7 +12,9 @@ import {
   View,
   Image,
   TextInput,
-    ScrollView,
+  ScrollView,
+  FlatList,
+    SectionList,
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -71,6 +73,40 @@ class MyInput extends Component{
     }
   }
 
+class MyList extends Component{
+  render(){
+    return (
+        <FlatList
+          data={
+            [
+                {key: '这是个 FlatList'},
+                {key: 'Devin'},
+                {key: 'Jackson'},
+                {key: 'James'},
+            ]
+          }
+          renderItem={({item})=><Text style={styles.itemStyle}>{item.key}</Text>}
+        />
+    );
+  }
+}
+
+class MySection extends Component{
+    render(){
+        return (
+            <SectionList
+                sections={
+                    [
+                        {title: '这是个 SectionList',data:['SectionList']},
+                        {title: '第二个分组', data:['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
+                    ]
+                }
+                renderItem={({item})=><Text style={styles.itemStyle}>{item}</Text>}
+                renderSectionHeader={({section})=><Text style={styles.groupStyle}>{section.title}</Text>}
+            />
+        );
+    }
+}
 
 export default class App extends Component<{}> {
   render() {
@@ -102,6 +138,9 @@ export default class App extends Component<{}> {
           <Image source={pic} style={{width:200,height:200}}/>
           <Image source={pic} style={{width:200,height:200}}/>
           <Image source={require('./img/1.png')} style={{width:200,height:200}}/>
+          <MyList style={styles.listStyle}/>
+
+            <MySection/>
         </ScrollView>
       </View>
     );
@@ -130,7 +169,20 @@ const styles = StyleSheet.create({
     fontSize:30,
     fontWeight:'bold',
   },
-    scrollContainer:{
-    alignItems:'center'
-    },
+  scrollContainer:{
+    alignItems:'center',
+  },
+  itemStyle:{
+    padding:10,
+    fontSize:18,
+  },
+  listStyle:{
+    width:300,
+    height:500,
+  },
+  groupStyle:{
+    color:'#ff0000',
+    padding:10,
+    fontSize:25,
+  },
 });
