@@ -10,7 +10,8 @@ import {
   StyleSheet,
   Text,
   View,
-    Image,
+  Image,
+  TextInput,
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -47,6 +48,28 @@ class Blink extends Component{
   }
 }
 
+class MyInput extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {text:''}
+  }
+
+  render(){
+    return (
+      <View style={{padding:10,width:200}}>
+      <TextInput
+        style={{height:40}}
+        placeholder = "type here to translate!"
+        onChangeText = {(text)=>this.setState({text})}
+      />
+        <Text style={{padding:10,fontSize:42}}>
+            {this.state.text.split(' ').map((word)=>word && 'A').join(' ')}
+        </Text>
+      </View>
+    )
+    }
+  }
+
 
 export default class App extends Component<{}> {
   render() {
@@ -70,6 +93,7 @@ export default class App extends Component<{}> {
         <Greeting name='jack'/>
         <Greeting name='mary'/>
         <Blink text='this is a blink'/>
+        <MyInput/>
         <Image source={pic} style={{width:200,height:200}}/>
       </View>
     );
