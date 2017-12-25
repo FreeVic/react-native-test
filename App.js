@@ -79,7 +79,8 @@ export default class App extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+      flexDirection:'column',
+    justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
@@ -96,6 +97,5 @@ const styles = StyleSheet.create({
   bigText:{
     fontSize:30,
     fontWeight:'bold',
-      flex:1
   },
 });
