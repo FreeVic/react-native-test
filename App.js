@@ -12,6 +12,7 @@ import {
   View,
   Image,
   TextInput,
+    ScrollView,
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -81,6 +82,7 @@ export default class App extends Component<{}> {
 
     return (
       <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Text style={styles.welcome}>
           Welcome to React Native，helloworld!
         </Text>
@@ -95,6 +97,12 @@ export default class App extends Component<{}> {
         <Blink text='this is a blink'/>
         <MyInput/>
         <Image source={pic} style={{width:200,height:200}}/>
+          <Image source={pic} style={{width:200,height:200}}/>
+          <Image source={pic} style={{width:200,height:200}}/>
+          <Image source={pic} style={{width:200,height:200}}/>
+          <Image source={pic} style={{width:200,height:200}}/>
+          <Image source={require('./img/1.png')} style={{width:200,height:200}}/>
+        </ScrollView>
       </View>
     );
   }
@@ -122,4 +130,7 @@ const styles = StyleSheet.create({
     fontSize:30,
     fontWeight:'bold',
   },
+    scrollContainer:{
+    alignItems:'center'
+    },
 });
