@@ -28,6 +28,25 @@ class Greeting extends Component{
   }
 }
 
+class Blink extends Component{
+  constructor(props){
+    super(props);
+    this.state = {showText:true};
+
+    setInterval(()=>{
+      this.setState(previousState=>{
+        return {showText:!previousState.showText};
+      })
+    },1000);
+  }
+  render(){
+    let disPlay = this.state.showText?this.props.text:' ';
+    return (
+        <Text>{disPlay}</Text>
+    );
+  }
+}
+
 
 export default class App extends Component<{}> {
   render() {
@@ -50,6 +69,7 @@ export default class App extends Component<{}> {
         </Text>
         <Greeting name='jack'/>
         <Greeting name='mary'/>
+        <Blink text='this is a blink'/>
         <Image source={pic} style={{width:200,height:200}}/>
       </View>
     );
