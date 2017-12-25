@@ -15,6 +15,7 @@ import {
   ScrollView,
   FlatList,
     SectionList,
+    Alert,
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -115,6 +116,32 @@ export default class App extends Component<{}> {
       uri:"http://www.staticec.com/www/images/new/index/1.png"
     };
 
+    fetch('http://m.zhcw.com/clienth5.do',
+    // 方式一
+    //     {
+    //   method:'POST',
+    //   headers:{
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //   },
+    //     body:JSON.stringify({
+    //         "transactionType":'8021',
+    //         "pageNo":'1',
+    //         "pageSize":'20',
+    //         "busiCode":'300203',
+    //     })
+    // }
+        // 方式二
+        {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'transactionType=8021&pageNo=1&pageSize=20&busiCode=300203',
+        }
+    ).then((response)=>response.json())
+        .then((responseJson)=>Alert.alert(responseJson.totalPage.toString()))
+        .catch((error)=>{console.error(error);})
 
     return (
       <View style={styles.container}>
