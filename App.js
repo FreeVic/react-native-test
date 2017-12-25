@@ -96,5 +96,6 @@ const styles = StyleSheet.create({
   bigText:{
     fontSize:30,
     fontWeight:'bold',
+      flex:1
   },
 });
