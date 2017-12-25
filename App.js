@@ -42,7 +42,7 @@ class Blink extends Component{
   render(){
     let disPlay = this.state.showText?this.props.text:' ';
     return (
-        <Text>{disPlay}</Text>
+        <Text style={styles.bigText}>{disPlay}</Text>
     );
   }
 }
@@ -92,5 +92,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  bigText:{
+    fontSize:30,
+    fontWeight:'bold',
   },
 });
