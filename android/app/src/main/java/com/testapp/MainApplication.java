@@ -23,7 +23,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-              new ExampleReactPackage()
+              mReactPackage
       );
     }
 
@@ -42,5 +42,19 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+  }
+
+  private ExampleReactPackage mReactPackage = new ExampleReactPackage();
+
+  public ReactNativeHost getmReactNativeHost() {
+    return mReactNativeHost;
+  }
+
+  public ExampleReactPackage getmReactPackage() {
+    return mReactPackage;
+  }
+
+  public void setmReactPackage(ExampleReactPackage mReactPackage) {
+    this.mReactPackage = mReactPackage;
   }
 }

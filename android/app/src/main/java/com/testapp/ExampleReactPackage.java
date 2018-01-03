@@ -14,15 +14,27 @@ import java.util.List;
  */
 
 public class ExampleReactPackage implements ReactPackage {
+
+    private ToastModule mModule = null;
+
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> result = new ArrayList<>();
-        result.add(new ToastModule(reactContext));
+        mModule = new ToastModule(reactContext);
+        result.add(mModule);
         return result;
     }
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Collections.emptyList();
+    }
+
+    public ToastModule getmModule() {
+        return mModule;
+    }
+
+    public void setmModule(ToastModule mModule) {
+        this.mModule = mModule;
     }
 }

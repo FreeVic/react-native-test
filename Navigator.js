@@ -9,6 +9,7 @@ import {
     Image,
     View,
     NativeModules,
+    DeviceEventEmitter,
 } from 'react-native';
 
 var ToastExample = require('./MyExample')
@@ -32,6 +33,14 @@ class MainScreen extends React.Component {
     	</View>
     );
   }
+
+  componentDidMount() {  
+      DeviceEventEmitter.addListener('EVENT_TIME',(msg)=>{  
+           title = "React Native界面,收到数据：" + msg;  
+           ToastExample.show(title);  
+      })  
+  }  
+
 }
 
 
