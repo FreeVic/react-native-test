@@ -6,7 +6,12 @@ import {
 import {
     Button,
     Alert,
+    Image,
+    View,
+    NativeModules,
 } from 'react-native';
+
+var ToastExample = require('./MyExample')
 
 class MainScreen extends React.Component {
   static navigationOptions = {
@@ -15,12 +20,16 @@ class MainScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <Button
-        title="Go to Jane's profile"
-        onPress={() =>
-          navigate('Profile',{name:'Jane'})
-        }
-      />
+    	<View>
+		  <Button
+		    title="Go to Jane's profile"
+		    onPress={() =>
+		      navigate('Profile',{name:'Jack'})
+          // Alert.alert('哈哈')
+		    }
+		  />
+		  <Image source={require('./img/1.png')} style={{width:200,height:200}}/>
+    	</View>
     );
   }
 }
@@ -36,7 +45,7 @@ class ProfileScreen extends React.Component {
       <Button
         title="Go to Jack's profile"
         onPress={() =>
-          navigate('Main',{name:'Jack'})
+          {ToastExample.show('原生Toast！')}
         }
       />
     );
