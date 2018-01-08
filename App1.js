@@ -14,8 +14,6 @@ import {
     Alert,
 } from 'react-native';
 
-var ToastExample = require('./MyExample')
-
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -106,12 +104,9 @@ class MyList extends Component{
                 body: 'transactionType=8021&pageNo=1&pageSize=20&busiCode=300203',
             }
         ).then((response)=>response.json())
-            .then((responseJson)=>{
-                this.setState({
+            .then((responseJson)=>this.setState({
                 dataList:responseJson.dataList
-            })
-
-            })
+            }))
             .catch((error)=>{console.error(error);})
 
 
@@ -159,50 +154,30 @@ class MySection extends Component{
     }
 }
 
-export default class App extends React.Component {
+export default class App1 extends React.Component {
+
     render() {
-    var str1 = this.props.first;
-    var str2 = this.props.second;
+
         let pic = {
             uri:"http://www.staticec.com/www/images/new/index/1.png"
             // uri:"http://m.zhcw.com/upload/resources/image/2017/12/26/722978.png"
         };
+
+        var str = 'hello'
+        for(var chr of str){
+            alert(chr);
+        }
+
+
+
         return (
             <View style={styles.container}>
-              <ScrollView contentContainerStyle={styles.scrollContainer}>
-                <Text style={styles.welcome} onPress={() =>
-                              {
-                                // Alert.alert('haha');
-
-                                var object = {
-                                  "first":"第1个参数:"+str1,
-                                  "second":"第2个参数:"+str2
-                                }
-                                ToastExample.show(object);
-                              }
-                    }>
-                  Welcome to React Native，helloworld!
-                </Text>
-                {/*<Text style={styles.instructions}>*/}
-                  {/*To get started, edit App.js*/}
-                {/*</Text>*/}
-                {/*<Text style={styles.instructions}>*/}
-                    {/*{instructions}*/}
-                {/*</Text>*/}
-                {/*<Greeting name='jack'/>*/}
-                {/*<Greeting name='mary'/>*/}
-                {/*<Blink text='this is a blink'/>*/}
-                {/*<MyInput/>*/}
-                <Image source={pic} style={{width:200,height:200}}/>
-                {/*<Image source={pic} style={{width:200,height:200}}/>*/}
-                {/*<Image source={pic} style={{width:200,height:200}}/>*/}
-                {/*<Image source={pic} style={{width:200,height:200}}/>*/}
-                {/*<Image source={pic} style={{width:200,height:200}}/>*/}
-                {/*<Image source={require('./img/1.png')} style={{width:200,height:200}}/>*/}
-                <MyList style={styles.listStyle}/>
-
-                {/*<MySection/>*/}
-              </ScrollView>
+              <Text style={{color:'#FF0000'}}>
+              父亲文本{'\n'}
+              <Text style={{color:'#00FF00'}}>
+                儿子文本
+              </Text>
+              </Text>
             </View>
         );
     }

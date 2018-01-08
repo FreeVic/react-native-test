@@ -19,6 +19,7 @@ class MainScreen extends React.Component {
     title: 'MainScreenM',
   };
   render() {
+    // Alert.alert('哈哈');
     const { navigate } = this.props.navigation;
     return (
     	<View>
@@ -45,6 +46,7 @@ class MainScreen extends React.Component {
 
 
 class ProfileScreen extends React.Component {
+
   static navigationOptions = {
     title: 'ProfileScreen',
   };
@@ -54,7 +56,13 @@ class ProfileScreen extends React.Component {
       <Button
         title="Go to Jack's profile"
         onPress={() =>
-          {ToastExample.show('原生Toast！')}
+          {
+            var object = {
+              "first":"第一个参数",
+              "second":"第二个参数"
+            }
+            ToastExample.show(object)
+          }
         }
       />
     );

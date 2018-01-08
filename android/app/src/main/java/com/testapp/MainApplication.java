@@ -12,6 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
+  private static MainApplication application = null;
+
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
@@ -42,6 +44,7 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+    application = this;
   }
 
   private ExampleReactPackage mReactPackage = new ExampleReactPackage();
@@ -56,5 +59,9 @@ public class MainApplication extends Application implements ReactApplication {
 
   public void setmReactPackage(ExampleReactPackage mReactPackage) {
     this.mReactPackage = mReactPackage;
+  }
+
+  public static MainApplication getApp(){
+    return application;
   }
 }

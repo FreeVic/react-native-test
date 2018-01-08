@@ -5,6 +5,7 @@ import android.widget.Toast;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 import java.util.HashMap;
@@ -39,8 +40,12 @@ public class ToastModule extends ReactContextBaseJavaModule {
         return constants;
     }
     @ReactMethod
-    public void show(String message){
-        Toast.makeText(getReactApplicationContext(),message,Toast.LENGTH_LONG).show();
+    public void show(ReadableMap map){
+        StringBuilder sb = new StringBuilder();
+        if(map!=null){
+            sb.append(map.getString("first")).append("--").append(map.getString("second"));
+        }
+        Toast.makeText(getReactApplicationContext(),sb.toString(),Toast.LENGTH_SHORT).show();
     }
 
     public void nativeCallRN(){
