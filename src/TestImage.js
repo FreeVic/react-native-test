@@ -7,6 +7,7 @@ import {
     Image,
     StyleSheet,
     Alert,
+    TouchableHighlight,
 } from 'react-native';
 
 export default class TestImage extends Component{
@@ -30,12 +31,16 @@ export default class TestImage extends Component{
     render(){
         return(
             <View style={styles.container}>
-            <Image
-                style={styles.img}
-                // source={{uri:'../img/1.png'}}
-                source={require('../img/1.png')}
-                blurRadius={1}
-            />
+            <TouchableHighlight
+                onPress={()=>this.mOnLoad()}
+                activeOpacity={0.9}
+            >
+                <Image
+                    style={styles.img}
+                    // source={{uri:'../img/1.png'}}
+                    source={require('../img/1.png')}
+                />
+            </TouchableHighlight>
 
             <Image
                 style={styles.img}
@@ -52,7 +57,9 @@ export default class TestImage extends Component{
 
 const styles= StyleSheet.create({
     container:{
-        flexDirection:'column'
+        flexDirection:'column',
+        justifyContent:'flex-start',
+        alignItems:'flex-start',
     },
     img:{
         width:200,
