@@ -159,7 +159,40 @@ class MySection extends Component{
     }
 }
 
+
 export default class App extends React.Component {
+
+    onTextClick(){
+        console.log('onclick');
+    }
+
+    // componentWillMount()，组件开始装载之前调用，在一次生命周期中只会执行一次。
+    // componentDidMount()，组件完成装载之后调用，在一次生命周期中只会执行一次，从这里开始就可以对组件进行各种操作了，比如在组件装载完成后要显示的时候执行动画。
+    // componentWillUpdate(object nextProps, object nextState)，组件属性更新之前调用，每一次属性更新都会调用
+    // componentDidUpdate(object prevProps, object prevState)，组件属性更新之后调用，每次属性更新都会调用
+    // componentWillUnmount()，组件卸载之前调用
+
+    componentWillMount(){
+        console.log("componentWillMount")
+    }
+
+    componentDidMount(nextProps, nextState){
+        console.log("componentDidMount")
+    }
+    componentWillUpdate(prevProps, prevState){
+        console.log("componentWillUpdate")
+    }
+    componentWillUnmount(){
+        console.log("componentWillUnmount")
+    }
+
+    constructor(props){
+        super(props)
+        state:{
+            next:1
+        }
+    }
+
     render() {
     var str1 = this.props.first;
     var str2 = this.props.second;
@@ -174,11 +207,14 @@ export default class App extends React.Component {
                               {
                                 // Alert.alert('haha');
 
-                                var object = {
-                                  "first":"第1个参数:"+str1,
-                                  "second":"第2个参数:"+str2
-                                }
-                                ToastExample.show(object);
+                                // var object = {
+                                //   "first":"第1个参数:"+str1,
+                                //   "second":"第2个参数:"+str2
+                                // }
+                                // ToastExample.show(object)
+                                this.onTextClick();
+
+                                // this.setState({next:2})
                               }
                     }>
                   Welcome to React Native，helloworld!
