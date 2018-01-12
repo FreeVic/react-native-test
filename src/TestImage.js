@@ -5,9 +5,11 @@ import React,{Component} from 'react';
 import {
     View,
     Image,
+    Text,
     StyleSheet,
     Alert,
     TouchableHighlight,
+    ScrollView,
 } from 'react-native';
 
 export default class TestImage extends Component{
@@ -50,6 +52,7 @@ export default class TestImage extends Component{
                 resizeMode={'contain'} // enum('cover', 'contain', 'stretch', 'repeat', 'center')
                 source={{uri: 'https://reactnative.cn/static/docs/0.51/img/components/image.png'}}
             />
+
             </View>
         )
     }
