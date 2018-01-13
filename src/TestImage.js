@@ -10,12 +10,16 @@ import {
     Alert,
     TouchableHighlight,
     ScrollView,
+    Switch,
 } from 'react-native';
 
 export default class TestImage extends Component{
     constructor(props){
         super(props)
 
+    }
+    state = {
+        switchSatus:false,
     }
 
     mOnLoad(){
@@ -52,6 +56,10 @@ export default class TestImage extends Component{
                 resizeMode={'contain'} // enum('cover', 'contain', 'stretch', 'repeat', 'center')
                 source={{uri: 'https://reactnative.cn/static/docs/0.51/img/components/image.png'}}
             />
+                <Switch
+                    value={this.state.switchSatus}
+                    onValueChange={(status)=>this.setState({switchSatus:status})}
+                ></Switch>
 
             </View>
         )
