@@ -20,7 +20,7 @@ export default class TestInput extends Component{
     render(){
 
         return(
-            <View>
+            <View style={styles.container}>
                 <Text>输入的值：{this.state.value}</Text>
                 <TextInput
                     onChangeText={(txt)=>this.setState({value:txt})}
@@ -31,5 +31,7 @@ export default class TestInput extends Component{
 }
 
 const styles= StyleSheet.create({
-
+    container:{
+        top:20,
+    }
 });

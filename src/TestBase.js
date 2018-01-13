@@ -6,6 +6,7 @@ import {
    View,
     Alert,
     StyleSheet,
+    Text,
 } from 'react-native';
 
 export default class TestBase extends Component{
@@ -13,7 +14,7 @@ export default class TestBase extends Component{
     render(){
 
         return(
-            <View>
+            <View style={styles.container}>
 
             </View>
         )
@@ -21,5 +22,7 @@ export default class TestBase extends Component{
 }
 
 const styles= StyleSheet.create({
-
+    container:{
+        top:20,
+    }
 });
