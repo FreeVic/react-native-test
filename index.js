@@ -3,5 +3,5 @@ import { AppRegistry } from 'react-native';
 // import App from './Navigator'
 // import App from './App'
 // import TestText from './src/TestText'
-import TestImage from './src/TestPicker'
+import TestImage from './src/TestDrawer'
 AppRegistry.registerComponent('testapp', () => TestImage);
