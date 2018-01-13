@@ -5,6 +5,7 @@ import React,{Component} from 'react';
 import {
    View,
     Alert,
+    StyleSheet,
 } from 'react-native';
 
 export default class TestBase extends Component{

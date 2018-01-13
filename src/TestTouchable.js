@@ -11,21 +11,20 @@ import {
     Button,
     Alert,
     Slider,
+    TextInput,
 } from 'react-native';
 
 export default class TestTouchable extends Component{
     constructor(props){
         super(props)
-
-        this.props={
-            value:12,
-        }
-
         this.state = {
             value:this.props.value,
+            showBtn:true,
         }
+    }
 
-
+    static defaultProps = {
+        value:12,
     }
 
 
@@ -41,14 +40,19 @@ export default class TestTouchable extends Component{
 
         let mOnSlideComplete=(value)=>{
 
-            Alert.alert('mOnSlideComplete')
         }
 
         let mOnSliding = (value)=>{
-            this.setState({value:value})
+            this.setState({value:value,showBtn:value>16?false:true})
             console.log('mOnSliding')
         }
 
+        let getButton = ()=>{
+            return this.state.showBtn && <Button
+                title={'修改'}
+                onPress={buttonPress}
+            ></Button>
+        }
 
         return(
             <ScrollView
@@ -60,10 +64,7 @@ export default class TestTouchable extends Component{
                     source={require('../img/1.png')}
                     style={{width:200,height:200}}
                 />
-                <Button
-                    title={'按钮'}
-                    onPress={buttonPress}
-                ></Button>
+                {getButton()}
                 <Slider
                     maximumTrackTintColor='#FF0000'
                     minimumTrackTintColor='#00FF00'
